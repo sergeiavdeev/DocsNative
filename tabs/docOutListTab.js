@@ -2,12 +2,11 @@ import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
 import {tabStyle} from './styles/tabStyle';
 
-class DocInListTab extends React.Component{
+class DocOutListTab extends React.Component{
 
   render() {
     return <View style={tabStyle.container}>
-      <Text>Входящие</Text>
+      <Text>Исходящие</Text>
     </View>;
   }
-} export default DocInListTab
-
+} export default DocOutListTab
