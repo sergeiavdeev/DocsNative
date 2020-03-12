@@ -7,6 +7,7 @@ class TaskListTab extends React.Component{
   render() {
     return <View style={tabStyle.container}>
       <Text>Задачи</Text>
+      <Text>Tasks</Text>
     </View>;
   }
 } export default TaskListTab
