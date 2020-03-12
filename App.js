@@ -7,17 +7,14 @@ import DocInListTab from './tabs/docInListTab';
 import DocOutListTab from "./tabs/docOutListTab";
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import * as SQLite from 'expo-sqlite';
+import Database from "./core/database/Database";
 
 const Tab = createBottomTabNavigator();
-const db = SQLite.openDatabase('DocsDb', 1);
 
 export default class App extends React.Component{
 
   componentDidMount() {
-    /*db.transaction(tx => {
-      tx.executeSql("create table if not exists Task (id text primary key, title text, author text)");
-    });*/
+    let db = new Database();
   }
 
   render() {
