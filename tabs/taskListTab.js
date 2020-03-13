@@ -16,13 +16,23 @@ class TaskListTab extends React.Component{
   }
 
   onUsersClick() {
-
-    Database.getUsers((rows) => {
-      rows.map((el) => {
-        alert(el.apiUrl);
+    alert('Pip');
+    Database.task.getAll()
+      .then((tasks) => {
+        console.log(tasks);
       })
-    })
-  }
+      .catch((err) => {
+        console.log(err);
+      });
 
+    Database.task.getAll('Ива')
+      .then((tasks) => {
+        //console.log('Filter: ва');
+        console.log(tasks);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 }
 export default TaskListTab

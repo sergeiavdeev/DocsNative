@@ -14,7 +14,30 @@ const Tab = createBottomTabNavigator();
 export default class App extends React.Component{
 
   componentDidMount() {
-    let db = new Database();
+    Database.init();
+    Database.user.add('123', 'https://123', 'iPhone')
+      .then((t, r) => {
+        console.log(t.rowsAffected);
+        //console.log(r);
+      })
+      .catch((t, e) => {
+        console.log(e);
+      });
+
+    Database.task.add({id: '1', author: 'Иванов', title: 'Задача 1'})
+      .then((res) => {
+
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    Database.task.add({id: '2', author: 'Петров', title: 'Задача 2'})
+      .then((res) => {
+
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
