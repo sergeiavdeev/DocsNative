@@ -1,13 +1,21 @@
 import React from 'react'
 import {Text, View, Button} from 'react-native'
-import {tabStyle} from './styles/tabStyle';
+import {tabStyles} from './styles/TabStyles';
 import Database from "../core/database/Database";
 
 class TaskListTab extends React.Component{
 
+  constructor(props) {
+    super(props);
+    console.log(this.props);
+  }
+
   render() {
     return(
-    <View style={tabStyle.container}>
+    <View style={tabStyles.container}>
+      <View style={tabStyles.topBar}>
+
+      </View>
       <Text>Задачи</Text>
       <Text>Tasks</Text>
       <Button onPress={this.onUsersClick} title="Users"/>
@@ -15,8 +23,7 @@ class TaskListTab extends React.Component{
     );
   }
 
-  onUsersClick() {
-    alert('Pip');
+  onUsersClick =() => {
     Database.task.getAll()
       .then((tasks) => {
         console.log(tasks);
@@ -25,7 +32,7 @@ class TaskListTab extends React.Component{
         console.log(err);
       });
 
-    Database.task.getAll('Ива')
+    Database.task.getAll('ива')
       .then((tasks) => {
         //console.log('Filter: ва');
         console.log(tasks);
@@ -33,6 +40,8 @@ class TaskListTab extends React.Component{
       .catch((err) => {
         console.log(err);
       })
+
+    //this.props.setLogin(false);
   }
 }
 export default TaskListTab

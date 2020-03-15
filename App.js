@@ -1,17 +1,24 @@
 import React from 'react';
 import {NavigationContainer} from "@react-navigation/native";
+import {Provider} from 'react-redux';
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import TaskListTab from './tabs/taskListTab';
-import DocInternalListTab from './tabs/docInternalListTab';
-import DocInListTab from './tabs/docInListTab';
-import DocOutListTab from "./tabs/docOutListTab";
+import TaskListTab from './tabs/TaskListTab';
+import DocInternalListTab from './tabs/DocInternalListTab';
+import DocInListTab from './tabs/DocInListTab';
+import DocOutListTab from "./tabs/DocOutListTab";
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import Database from "./core/database/Database";
+import LoginView from './login/LoginView'
 
 const Tab = createBottomTabNavigator();
 
-export default class App extends React.Component{
+
+class App extends React.Component{
+
+  state = {
+    login: false
+  };
 
   componentDidMount() {
     Database.init();
@@ -40,7 +47,16 @@ export default class App extends React.Component{
       });
   }
 
+  renderLogin() {
+      return(
+        <LoginView setLogin={this.setLogin} login={'Имя поль'}></LoginView>
+      );
+  }
+
   render() {
+    if (!this.state.login) {
+      return this.renderLogin();
+    }
     return (
       <NavigationContainer>
         <Tab.Navigator>
@@ -53,6 +69,9 @@ export default class App extends React.Component{
                 <Icon name="tasks" color={color} size={size}/>
               )
             }}
+            listeners={{onExit: () =>{
+              console.log('Exit!');
+              }, }}
           />
           <Tab.Screen
             name={'Входящие'}
@@ -88,5 +107,10 @@ export default class App extends React.Component{
       </NavigationContainer>
     );
   }
+
+  setLogin = (login) => {
+    this.setState({login: login})
+  }
 }
+export default App;
 

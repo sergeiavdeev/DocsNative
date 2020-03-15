@@ -30,8 +30,7 @@
       "package": "com.avdeev.docs.native",
       "versionCode": 1
     },
-    "web": {
-
-    }
+    "web": {},
+    "description": ""
   }
 }

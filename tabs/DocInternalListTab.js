@@ -1,11 +1,11 @@
 import React from 'react'
 import {Text, View} from 'react-native'
-import {tabStyle} from './styles/tabStyle';
+import {tabStyles} from './styles/TabStyles';
 
 class DocInternalListTab extends React.Component{
 
   render() {
-    return <View style={tabStyle.container}>
+    return <View style={tabStyles.container}>
       <Text>Внутренние</Text>
     </View>;
   }

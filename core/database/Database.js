@@ -46,11 +46,13 @@ export default class Database {
 
   static task = {
     getAll: (filter) => {
+      if(!filter)filter='';
       console.log('Filter: ' + filter);
       return new Promise((resolve, reject) => {
         db.transaction(tx => {
           if (filter && filter.length > 0) {
-            tx.executeSql("select * from Task where title like '%?%' or author like '%?%'", [filter, filter],
+            let sql = "select * from Task where title like ? or author like ?";
+            tx.executeSql(sql,['%'+filter+'%', '%'+filter+'%'],
               (tran, res) => {
                 resolve(res.rows);
               },
@@ -64,7 +66,8 @@ export default class Database {
               },
               (tran, err) => {
                 reject(err);
-              })          }
+              })
+          }
         })
       });
     },
