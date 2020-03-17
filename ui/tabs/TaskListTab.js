@@ -1,7 +1,7 @@
 import React from 'react'
 import {Text, View, Button} from 'react-native'
 import {tabStyles} from './styles/TabStyles';
-import Database from "../core/database/Database";
+//import Database from "../../core/database/Database";
 
 class TaskListTab extends React.Component{
 
@@ -24,24 +24,10 @@ class TaskListTab extends React.Component{
   }
 
   onUsersClick =() => {
-    Database.task.getAll()
-      .then((tasks) => {
-        console.log(tasks);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
 
-    Database.task.getAll('ива')
-      .then((tasks) => {
-        //console.log('Filter: ва');
-        console.log(tasks);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-
-    //this.props.setLogin(false);
   }
 }
+
+
+
 export default TaskListTab

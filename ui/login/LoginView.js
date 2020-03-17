@@ -1,7 +1,8 @@
 import React from 'react';
 import {tabStyles} from "../tabs/styles/TabStyles";
 import {View, Text, Button, TextInput, StatusBar} from "react-native";
-
+import {userAuth} from "../../actions";
+import {store} from '../../App';
 
 export default class LoginView extends React.Component {
 
@@ -32,6 +33,7 @@ export default class LoginView extends React.Component {
   }
 
   onLoginClick = () => {
+    //store.dispatch(userAuth("", ""));
     this.props.setLogin(true);
   }
 }
