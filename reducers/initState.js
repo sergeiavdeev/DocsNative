@@ -4,6 +4,11 @@ const initState = {
     deviceKey: "",
     passwordHash: "",
     auth: false,
+    ui: {
+      wait: false,
+      username: "",
+      password: ""
+    }
   },
   task: {
     taskList: [],

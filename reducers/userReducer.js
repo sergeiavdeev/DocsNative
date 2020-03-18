@@ -8,6 +8,10 @@ export default function userReducer(state = initState.user, action) {
       return {...state, apiUrl: "http://", deviceKey: "123456", passwordHash: "phash"}
     case "LOGOUT_USER":
       return {...state, auth: false}
+    case "USER_UI_WAIT":
+      return {...state, wait: action.payload.wait}
+    case "USER_UI_SET_NAME":
+      return {...state, username: action.payload.username}
     default:
       return state;
   }
