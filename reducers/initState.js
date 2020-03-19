@@ -4,14 +4,14 @@ const initState = {
     deviceKey: "",
     passwordHash: "",
     auth: false,
-    ui: {
-      wait: false,
-      username: "",
-      password: ""
-    }
+    username: "",
+    password: ""
   },
   task: {
     taskList: [],
+  },
+  ui: {
+    wait: 0
   }
 };
 export default initState;

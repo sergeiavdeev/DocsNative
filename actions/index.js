@@ -1,29 +1,32 @@
-export const userAuth = () => {
+export const userLogin = () => {
   return {
-    type: "AUTH_USER"
+    type: "USER_LOGIN"
   }
 }
 
 export const userLogout = () => {
   return {
-    type: "LOGOUT_USER"
-  }
-}
-
-export const userSetWait = (wait) => {
-  return {
-    type: "USER_UI_WAIT",
-    payload: {
-      wait: wait
-    }
+    type: "USER_LOGOUT"
   }
 }
 
 export const userSetName = (name) => {
   return {
-    type: "USER_UI_SET_NAME",
-    payload: {
-      username: name
-    }
+    type: "USER_SET_NAME",
+    payload: name
+  }
+}
+
+export const userSetPassword = (password) => {
+  return {
+    type: "USER_SET_PASSWORD",
+    payload: password
+  }
+}
+
+export const uiSetWait = (wait) => {
+  return {
+    type: "UI_WAIT",
+    payload: wait
   }
 }
