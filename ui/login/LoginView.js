@@ -4,8 +4,12 @@ import {View, Text, Button, TextInput, StatusBar} from "react-native";
 import {connect} from "react-redux";
 import {userLogin, userSetName, userSetPassword} from "../../actions";
 
-
 class LoginView extends React.Component {
+
+  componentDidMount() {
+    this.dispatch = this.props.dispatch;
+  }
+
   render() {
     return (
       <View style={tabStyles.container}>
@@ -31,15 +35,15 @@ class LoginView extends React.Component {
   }
 
   onLoginClick = () => {
-    this.props.dispatch(userLogin());
+    this.dispatch(userLogin());
   }
 
   onNameChange = (e) => {
-    this.props.dispatch(userSetName(e.target.value));
+    this.dispatch(userSetName(e.target.value));
   }
 
   onPasswordChange = (e) => {
-    this.props.dispatch(userSetPassword(e.target.value));
+    this.dispatch(userSetPassword(e.target.value));
   }
 }
 
