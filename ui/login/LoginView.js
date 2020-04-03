@@ -2,7 +2,7 @@ import React from 'react';
 import {tabStyles} from "../tabs/styles/TabStyles";
 import {View, Text, Button, TextInput, StatusBar} from "react-native";
 import {connect} from "react-redux";
-import {userLogin, userSetName, userSetPassword} from "../../actions";
+import {startUserLogin, userLogin, userSetName, userSetPassword} from "../../actions";
 
 class LoginView extends React.Component {
 
@@ -35,7 +35,7 @@ class LoginView extends React.Component {
   }
 
   onLoginClick = () => {
-    this.dispatch(userLogin());
+    this.dispatch(startUserLogin(this.props.username, this.props.password));
   }
 
   onNameChange = (e) => {

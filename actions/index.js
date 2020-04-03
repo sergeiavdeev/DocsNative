@@ -4,6 +4,16 @@ export const userLogin = () => {
   }
 }
 
+export const startUserLogin = (username, password) => {
+
+  return function (dispatch) {
+
+    dispatch(uiSetWait(true));
+    dispatch(userLogin());
+    dispatch(uiSetWait(false));
+  }
+}
+
 export const userLogout = () => {
   return {
     type: "USER_LOGOUT"
@@ -30,3 +40,4 @@ export const uiSetWait = (wait) => {
     payload: wait
   }
 }
+
